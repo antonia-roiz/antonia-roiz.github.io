@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cauculadora de Idade Aproximada</title>
+</head>
+
+<body>
+    <h1>Calculadora de Idade</h1>
+    <p>Digite seu ano de nascimento</p>
+    <input type="number" id="anoNascimento">
+    <button onclick="calcularIdade()">Calcular</button>
+    <h2 id="resultado"></h2>
+
+     <script>
+        function calcularIdade() {
+            let anoNascimento = document.getElementById("anoNascimento").value;
+            let anoAtual = 2026;
+
+            let idade = anoAtual - anoNascimento;
+
+            document.getElementById("resultado").innerText =
+                "Voce tem aproximadamente " + idade + " anos!";
+        }
+    </script>
+
+</body>
+</html>
