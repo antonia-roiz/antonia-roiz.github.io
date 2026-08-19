@@ -94,8 +94,13 @@
 
         <h1>🎂 Calculadora de Idade</h1>
 
-        <p>Digite seu ano de nascimento:</p>
+        <p>Digite sua data de nascimento:</p>
 
+       <label>Dia:</label>
+        <input type="number" id="diaNascimento">
+       <label>Mês:</label>
+        <input type="number" id="mesNascimento">
+       <label>Ano</label>
         <input type="number" id="anoNascimento">
 
         <button onclick="calcularIdade()">Calcular</button>
@@ -106,15 +111,30 @@
 
     <script>
         function calcularIdade() {
+            
+            let diaNascimento = document.getElementById("diaNascimento").value;
+            
+            let mesNascimento = document.getElementById("mesNascimento").value;
 
             let anoNascimento = document.getElementById("anoNascimento").value;
 
-            let anoAtual = 2026;
+            let  diaAtual = new Date().getDate();
+
+            let mesAtual = new Date().getMonth() + 1;
+           
+            let anoAtual = new Date().getFullYear();
 
             let idade = anoAtual - anoNascimento;
 
-            document.getElementById("resultado").innerText =
-                "Você tem aproximadamente " + idade + " anos! 🎉";
+            if (mesAtual < mesNascimento) {
+                idade--
+            }
+
+            if (mesAtual == mesNascimento && diaAtual < diaNascimento) {
+                idade--
+            }
+
+            document.getElementById("resultado").innerText = "Você tem aproximadamente " + idade + " anos! 🎉";
         }
     </script>
 
